@@ -1,0 +1,94 @@
+<div class="loginsystem">
+
+    <div class="row">
+        <div class="col-10 contactForm">
+            <h2 class="login">Contact Us</h2>
+        </div>
+    </div>
+
+    <div class="col-10">
+        <form class="form-group" (onSubmit)="sendMessage()">
+
+   <div class="names" style="display: flex; justify-content: space-between;">
+            <div class="col-6">
+            <label for="fname">FirstName</label>
+            <input type="text" name="fname" [(ngModel)]="message.firstName" #Fname="ngModel" class="form-control" required>
+             <div class="text-danger">
+              @if(Fname.errors?.['required']){
+                <span>*</span>
+              }
+              
+             </div>
+            </div>
+
+            <div class="col-6">
+                <label for="lname">LastName</label>
+                <input type="text" name="lname" #lName="ngModel" [(ngModel)]="message.lastName" class="form-control" required>
+                 <div class="text-danger">
+                    @if(lName.errors?.['required']){
+                        <span>*</span>
+                      }
+                 </div>
+                </div>
+                </div>
+
+                <div>
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" #email="ngModel" [(ngModel)]="message.email"  class="form-control" required>
+                     <div class="text-danger">
+                        @if(email.errors?.['required']){
+                            <span>*</span>
+                          }
+                     </div>
+                    </div>
+                 
+                    <div class="names" style="display: flex; justify-content: space-between;">
+                  <div class="col-6">
+                    <label for="country">Country</label>
+                    <select id="country" name="country" #country="ngModel" [(ngModel)]="message.country" class="form-control">
+                      <option value="australia">Australia</option>
+                      <option value="canada">Canada</option>
+                      <option value="usa">USA</option>
+                      <option value="rwanda">Rwanda</option>
+                    </select>
+                    <div class="text-danger">
+                        @if(country.errors?.['required']){
+                            <span>*</span>
+                          }
+                    </div>
+    
+                    </div>
+
+                    <div class="col-6">
+                    <label for="phone">Phone number</label>
+                    <input type="tel" name="phone" #phone="ngModel" [(ngModel)]="message.phoneNumber" class="form-control" required>
+                    <div class="text-danger">
+                        @if(phone.errors?.['required']){
+                            <span>*</span>
+                          }
+                    </div>
+                    </div>
+                    </div>
+
+
+            <div>
+            <label for="password">Message</label>
+            <textarea  name="message" #text="ngModel" class="form-control" [(ngModel)]="message.text"placeholder="Write something.." style="height:100px;" required></textarea>
+            <div class="text-danger">
+                @if(text.errors?.['required']){
+                    <span>*</span>
+                  }
+                </div>
+        </div><br>
+            <div class="col-8 button" style="display:flex; justify-content: space-between;">
+            <div class="col-8">
+                <button type="button" class="btn btn-warning form-control" (click)="cancelMessage()" >Cancel</button>
+            </div>
+            <div class="col-8">
+                <button  class="btn btn-danger  form-control" (click)="sendMessage()">Send</button>
+                </div>
+            </div><br>
+
+        </form>
+    </div>
+    </div>

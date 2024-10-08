@@ -1,0 +1,18 @@
+.footer{
+    background-color: #CD5C5C;
+    text-align: center;
+}
+.footer span{
+   font-size: 0.70em;
+   color: whiteq
+   ;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.info{
+    color:white;
+    justify-content: block;
+}

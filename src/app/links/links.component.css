@@ -1,0 +1,11 @@
+.navbar.bg-primary .nav-link {
+    color:red-700 !important;
+}
+.navbar{
+    background-color: #CD5C5C
+}
+
+.admin-right {
+    margin-left: auto;
+}
+

@@ -1,0 +1,18 @@
+<div class="slideshow-container">
+    <div class="slides" [ngStyle]="{'transform': 'translateX(-' + currentIndex * 100 + '%)'}">
+      <div class="slide" *ngFor="let image of images; let i = index" [ngClass]="{'active': i === currentIndex}">
+        <img [src]="image.src" class="d-block w-100" alt="Slide image" />
+      </div>
+    </div>
+  
+    <button class="carousel-control-prev" type="button" (click)="prevSlide()">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    
+    <button class="carousel-control-next" type="button" (click)="nextSlide()">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  

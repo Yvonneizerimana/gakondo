@@ -1,0 +1,26 @@
+.header {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 20px; /* Add padding for spacing */
+    border-bottom: 1px solid #dee2e6; /* Optional bottom border */
+    
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+  color: white; 
+  }
+  
+  .logo img {
+    height: 50px; 
+    width: auto; 
+  }
+  
+  .title h1 {
+    margin: 0; 
+    font-size: 2rem; 
+    color: #CD5C5C; 
+    font-family: 'Poppins',sans-serif;
+    font-weight: bold;
+    
+  }
+  
