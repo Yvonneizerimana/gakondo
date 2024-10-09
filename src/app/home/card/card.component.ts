@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-card',
@@ -32,9 +33,17 @@ export class CardComponent {
   },
   
 ];
+newOne:any=[]
+readMoreDetails:string="Kuri ubu rero, ibitaramo mu miryango bisa n’aho byacitse. Usanga ahenshi byarasimbuwe no kureba tereviziyo cyangwa kumva amaradiyo. Ababyeyi usanga batakigira umwanya wo gutaramana n’abana babo kubera imirimo myinshi no gushakisha amafaranga. Hari kandi n’abava mu kazi bakajya kwiga nimugoroba"
 
+
+moreDetails=new Observable((details)=>{
+      details.next(this.readMoreDetails);
+})
 readMore(){
-  console.log('read more clicked');
+  this.moreDetails.subscribe((value:any)=>{
+     this.newOne.push(value)
+  })
 }
 
 }
