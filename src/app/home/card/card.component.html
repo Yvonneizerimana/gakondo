@@ -6,9 +6,13 @@
         <div class="card-body">
           <h5 class="card-title">{{ card.bookTitle }}</h5>
           <p class="card-text">{{ card.cardText }}</p>
-          <a href="#" class="btn btn-warning" (click)="readMore()">Read More...</a>
+          
+          <a href="#" class="btn btn-warning" (click)="readMore(card); $event.preventDefault()">Read More...</a>
         </div>
       </div>
     </div>
+  </div>
+  <div class="getStory" *ngFor="let story of newOne">
+      <p>{{story}}</p>
   </div>
   

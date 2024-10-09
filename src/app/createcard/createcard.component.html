@@ -1,0 +1,24 @@
+<div class="form-group" (onSubmit)="createCard()">
+
+    <div class="image">
+        <label for="image">Image</label>
+        <input type="file" name="image" class="form-control-file" [(ngModel)]="cards.image" required>
+    
+    </div>
+
+    <div class="title">
+        <label for="title">Title</label>
+        <input type="text" name="title" [(ngModel)]="cards.title"  class="form-control" required>
+    </div>
+
+    <div class="text">
+        <label for="text">Text</label>
+        <textarea type="text" name="text" [(ngModel)]="cards.text"  class="form-control" required></textarea>
+    </div>
+
+    <div class="buttons">
+        <button type="submit" class="btn btn-primary" (click)="createCard()">Submit</button>
+        <button type="cancel" class="btn btn-secondary">cancel</button>
+    </div>
+
+</div>
