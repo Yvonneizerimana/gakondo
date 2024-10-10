@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { Observable } from 'rxjs';
+import { CardService } from '../../services/card.service';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -9,7 +11,7 @@ import { Observable } from 'rxjs';
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
   cardDetails: any[] = [
     {
       image: 'https://furahapublisher.com/wp-content/uploads/2022/10/Acifa-Cover-212x300.jpg',
@@ -48,4 +50,21 @@ export class CardComponent {
       this.newOne.push(value);
     })
   }
+
+ constructor(private cardService: CardService){
+ }
+ 
+
+ ngOnInit() {
+  this.cardService.showCard.subscribe((card: any) => {
+      console.log("card received", card);
+      
+      this.cardDetails.push({
+          image: card.image,
+          bookTitle: card.title,
+          cardText: card.text
+      });
+  });
+}
+
 }

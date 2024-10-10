@@ -16,15 +16,13 @@ export class CreatecardComponent {
       title:'',
       text:'',
      }
-cardService: CardService=Inject(CardService);
+constructor(private cardService: CardService){}
      createCard(){
 
-      this.cardService.onCreateCard(this.cards.image, this.cards.title, this.cards.text)
-
-
+this.cardService.onCreateCard(this.cards.image, this.cards.title, this.cards.text)
        this.cards={
         image:'',
-        title:'',
+        title:'',   
         text:'',
        }
      }
