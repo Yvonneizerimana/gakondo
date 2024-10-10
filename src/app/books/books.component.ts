@@ -12,6 +12,6 @@ export class BooksComponent {
 
  constructor(private router: Router){}
 goToHome(){
-  this.router.navigateByUrl('/contactus')
+  this.router.navigateByUrl('contactus')
 }
 }
