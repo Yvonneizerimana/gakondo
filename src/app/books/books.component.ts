@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component,Inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-books',
@@ -9,4 +10,8 @@ import { Component } from '@angular/core';
 })
 export class BooksComponent {
 
+ constructor(private router: Router){}
+goToHome(){
+  this.router.navigateByUrl('/contactus')
+}
 }
