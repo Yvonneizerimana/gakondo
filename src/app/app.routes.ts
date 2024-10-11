@@ -4,7 +4,6 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { BooksComponent } from './books/books.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { AdminComponent } from './admin/admin.component';
-import { CreatecardComponent } from './createcard/createcard.component';
 import { BookDetailsComponent } from './home/book-details/book-details.component';
 
 export const routes: Routes = [
@@ -34,10 +33,6 @@ export const routes: Routes = [
         {
             path:'admin',
             component:AdminComponent,       
-        },
-        {
-            path:'createcard',
-            component:CreatecardComponent,
         },
         {
             path:'book/:id',
