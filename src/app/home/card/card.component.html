@@ -1,18 +1,16 @@
 <div class="row">
     <div class="col-12  trending" trending><h5>Here's Trending Books</h5></div>
-    <div class="col-md-3 allcards" *ngFor="let card of cardDetails">
+    <div class="col-md-3 allcards" *ngFor="let Book of book ">
       <div class="card mb-4" style="width: 100%;">
-        <img [src]="card.image" class="card-img-top" alt="Card image" style="height: 150px; object-fit: cover;">
+        <img [src]="Book.bookImage" class="card-img-top" alt="Card image" style="height: 150px; object-fit: cover;">
         <div class="card-body">
-          <h5 class="card-title">{{ card.bookTitle }}</h5>
-          <p class="card-text">{{ card.cardText }}</p>
+          <h5 class="card-title">{{ Book.bookTitle }}</h5>
+          <p class="card-text">{{ Book.bookText }}</p>
           
-          <a href="#" class="btn btn-warning" (click)="readMore(card); $event.preventDefault()">Read More...</a>
+          <button class="btn btn-warning" (click)="bookDetails(Book.bookId)">Read More...</button>
         </div>
       </div>
     </div>
   </div>
-  <div class="getStory" *ngFor="let story of newOne">
-      <p>{{story}}</p>
-  </div>
+ 
   

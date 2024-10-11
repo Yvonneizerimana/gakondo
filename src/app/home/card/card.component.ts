@@ -3,6 +3,8 @@ import { NgFor } from '@angular/common';
 import { Observable } from 'rxjs';
 import { CardService } from '../../services/card.service';
 import { OnInit } from '@angular/core';
+import { BookService } from '../../services/book.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -11,60 +13,16 @@ import { OnInit } from '@angular/core';
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
-export class CardComponent implements OnInit {
-  cardDetails: any[] = [
-    {
-      image: 'https://furahapublisher.com/wp-content/uploads/2022/10/Acifa-Cover-212x300.jpg',
-      bookTitle: 'Umwamikazi Asifa',
-      cardText: 'inkuru yukuntu umwamikazi asifa yabayeho'
-    },
-    {
-      image: 'https://furahapublisher.com/wp-content/uploads/2022/10/Ikiraro-Cover-212x300.jpg',
-      bookTitle: 'Ikiraro cyo mu ishyamba',
-      cardText: `inkuru y'ikiraro cyo ishyamba, tobi na tito bari bapfuye!!!`
-    },
-    {
-      image: 'https://www.globallanguage.com.au/wp-content/uploads/2024/07/9798874275686.jpg',
-      bookTitle: 'My First 1000 words',
-      cardText: "this book of my First 1000 words is so amazinga !!"
-    },
-    {
-      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFEx6qy7If1X7xINSFP06S3Q-O1q6pBjyqKg&s',
-      bookTitle: 'ibyiyumvo',
-      cardText: 'oooh amazing book,, mbega ibyiyumvooo wee!!!'
-    }
-  ];
+export class CardComponent implements OnInit{
+  book:any=[]
 
-  newOne: any[] = [];
-
-  // Observable to emit the details of a specific book
-  moreDetails(book: any): Observable<any> {
-    return new Observable((observer) => {
-      observer.next(book.image + ',' + book.bookTitle + ',' + book.cardText);
-      observer.complete();
-    });
-  }
-
-  readMore(book: any) {
-    this.moreDetails(book).subscribe((value: any) => {
-      this.newOne.push(value);
-    })
-  }
-
- constructor(private cardService: CardService){
- }
+ constructor(private bookService:BookService, private router:Router){}
  
-
- ngOnInit() {
-  this.cardService.showCard.subscribe((card: any) => {
-      console.log("card received", card);
-      
-      this.cardDetails.push({
-          image: card.image,
-          bookTitle: card.title,
-          cardText: card.text
-      });
-  });
-}
-
+ ngOnInit(): void {
+   this.book=this.bookService.getBooks()
+ }
+  
+ bookDetails(bookId:number){
+    this.router.navigate(['book',bookId])
+ }
 }
