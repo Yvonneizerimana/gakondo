@@ -6,6 +6,7 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { AdminComponent } from './admin/admin.component';
 import { BookDetailsComponent } from './home/book-details/book-details.component';
 
+
 export const routes: Routes = [
     
         {
@@ -31,12 +32,14 @@ export const routes: Routes = [
             component:ContactusComponent,
         },
         {
-            path:'admin',
+            path:'login',
             component:AdminComponent,       
         },
         {
             path:'book/:id',
             component:BookDetailsComponent,
         },
+        
+        
     
 ];
